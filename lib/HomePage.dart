@@ -45,7 +45,6 @@ class _HomeState extends State<Home> {
         title: new Text("Complete Json Parsing "),
         backgroundColor: Colors.deepOrange,
         actions: <Widget>[
-
           new IconButton(
               icon: new Icon(Icons.search),
               onPressed: ()=>debugPrint("Search")
