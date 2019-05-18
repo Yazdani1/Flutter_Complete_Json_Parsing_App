@@ -37,9 +37,7 @@ class _HomeState extends State<Home> {
   .pink,Colors.amber];
 
   MaterialColor color;
-
-
-
+  
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
