@@ -242,6 +242,7 @@ class _HomeState extends State<Home> {
                                         ),
                                       )
                                   ),
+                                  
                                   new Expanded(
                                       flex: 1,
                                     child: Align(
