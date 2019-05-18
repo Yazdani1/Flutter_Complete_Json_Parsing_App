@@ -1,16 +1,8 @@
-# flutter_complete_jasonparsing
+# Flutter_Complete_Json_Parsing_App
 
-A new Flutter application.
+![tttttttttttt](https://user-images.githubusercontent.com/20543298/57968943-128e9b80-7993-11e9-8c4b-d831d7c989f4.PNG)
+![tttttttttttttttttttttttttt](https://user-images.githubusercontent.com/20543298/57968944-13273200-7993-11e9-8344-86bb71c2c915.PNG)
+![tttttttttttttttttttttttttttt](https://user-images.githubusercontent.com/20543298/57968945-13273200-7993-11e9-9b7a-fbcff3fc8816.PNG)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
