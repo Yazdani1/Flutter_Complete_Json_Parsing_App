@@ -5,6 +5,7 @@ import 'dart:async';
 import 'Model/Data.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'DetailsPage.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -34,6 +35,8 @@ class _HomeState extends State<Home> {
 
   List<MaterialColor>_color=[Colors.orange,Colors.green,Colors.blue,Colors.purple,Colors
   .pink,Colors.amber];
+
+  MaterialColor color;
 
 
 
@@ -121,6 +124,7 @@ class _HomeState extends State<Home> {
       ),
 
       body: new ListView(
+        scrollDirection: Axis.vertical,
         children: <Widget>[
           
           new Container(
@@ -139,7 +143,7 @@ class _HomeState extends State<Home> {
                       scrollDirection: Axis.horizontal,
                       itemCount: snapshot.data.length,
                       itemBuilder: (BuildContext c,int index){
-                        MaterialColor color=_color[index % _color.length];
+                         color=_color[index % _color.length];
                         return Container(
                           width: 150.0,
                           child: new Card(
@@ -194,8 +198,81 @@ class _HomeState extends State<Home> {
               }
             ),
           ),//end container....
-          
-          
+
+          new SizedBox(height: 7.0,),
+          new Container(
+            height: MediaQuery.of(context).size.height,
+            margin: EdgeInsets.only(left: 5,top: 10.0),
+              child: FutureBuilder(
+                future: _getData(),
+                builder: (BuildContext c,AsyncSnapshot snapshot){
+                  if(snapshot.data==null){
+                    return Center(
+                      child: new Text("Loading.."),
+                    );
+                  }else{
+                    return ListView.builder(
+                        itemCount: snapshot.data.length,
+                      itemBuilder: (BuildContext c,int index){
+                         color=_color[index % _color.length];
+                          return Card(
+                            elevation: 5.0,
+                            margin: EdgeInsets.all(10.0),
+                            child: new Container(
+                              height: 80.0,
+                              child: new Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+
+                                  new Expanded(
+                                      flex: 1,
+                                    child: new Container(
+                                      child: new Image.network(snapshot.data[index].thumbnailUrl,
+                                      height: 80.0,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  new SizedBox(width: 5.0,),
+                                  new Expanded(
+                                    flex: 2,
+                                      child: new Container(
+                                        child: InkWell(
+                                          child: new Text(snapshot.data[index].title,
+                                          maxLines: 2,
+                                          style: TextStyle(fontSize: 18.0,color: Colors.purple),
+                                          ),
+                                          onTap: (){
+                                            Navigator.of(context).push(new MaterialPageRoute(builder: (c)=>Detail(snapshot.data[index])));
+                                          },
+                                        ),
+                                      )
+                                  ),
+                                  new Expanded(
+                                      flex: 1,
+                                    child: Align(
+
+                                      alignment: Alignment.center,
+                                      child: new Container(
+                                        child: new CircleAvatar(
+                                          backgroundColor: color,
+                                          child: Text(snapshot.data[index].id.toString()),
+                                          foregroundColor: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  )
+
+                                ],
+                              ),
+                            ),
+                          );
+                      }
+                    );
+                  }
+                }
+              )
+            )
         ],
       )
 
