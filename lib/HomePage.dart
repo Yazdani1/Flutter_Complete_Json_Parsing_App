@@ -37,11 +37,10 @@ class _HomeState extends State<Home> {
   .pink,Colors.amber];
 
   MaterialColor color;
-  
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-
       appBar: new AppBar(
         title: new Text("Complete Json Parsing "),
         backgroundColor: Colors.deepOrange,
@@ -57,7 +56,6 @@ class _HomeState extends State<Home> {
           )
         ],
       ),
-
       drawer: new Drawer(
         child: new ListView(
           children: <Widget>[
