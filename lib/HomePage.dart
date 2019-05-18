@@ -82,7 +82,6 @@ class _HomeState extends State<Home> {
               },
             ),
             new ListTile(
-
               title: new Text("Third Page"),
               leading: new Icon(Icons.title,color: Colors.red,),
               onTap: (){
